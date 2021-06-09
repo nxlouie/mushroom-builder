@@ -21,9 +21,9 @@ class ComponentCard extends React.Component {
   }
 
   render() {
-    const { imgUrl } = this.props;
+    const { imgUrl, id, selectHandler } = this.props;
     return (
-      <Container>
+      <Container onClick={() => selectHandler(id)}>
         <ComponentImg src= {imgUrl}>
         </ComponentImg>
       </Container>
@@ -42,12 +42,12 @@ class ComponentRow extends React.Component {
   }
 
   render() {
-    const { componentCardItems } = this.props;
+    const { componentCardItems, selectHandler } = this.props;
     return (
       <>
         <Title><td>hey</td></Title>
         <tr>
-          {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl}/>)}
+          {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl} id={card.id} selectHandler={selectHandler}/>)}
         </tr>
       </>
     )
@@ -120,16 +120,49 @@ const MushroomBackgroundData = [
 ]
 
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Welcome to mushroom builder</h1>
-      <ComponentRow componentCardItems={MushroomHeadsData}/>
-      <ComponentRow componentCardItems={MushroomStemsData}/>
-      <ComponentRow componentCardItems={MushroomBackgroundData}/>
-      <MetadataForm/>
-    </div>
-  );
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selectedHeadId: -1,
+      selectedStemId: -1,
+      selectedBackgroundId: -1,
+    };
+
+    this.handleSelectHead = this.handleSelectHead.bind(this);
+    this.handleSelectStem = this.handleSelectStem.bind(this);
+    this.handleSelectBackground = this.handleSelectBackground.bind(this);
+  }
+
+  handleSelectHead(id) {
+    this.setState({
+      selectedHeadId: id,
+    })
+  }
+
+  handleSelectStem(id) {
+    this.setState({
+      selectedStemId: id,
+    })
+  }
+
+  handleSelectBackground(id) {
+    this.setState({
+      selectedBackgroundId: id,
+    })
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <h1>Welcome to mushroom builder</h1>
+        <ComponentRow componentCardItems={MushroomHeadsData} selectHandler={this.handleSelectHead}/>
+        <ComponentRow componentCardItems={MushroomStemsData} selectHandler={this.handleSelectStem}/>
+        <ComponentRow componentCardItems={MushroomBackgroundData} selectHandler={this.handleSelectBackground}/>
+        <MetadataForm/>
+      </div>
+    );
+  }
 }
 
 export default App;
