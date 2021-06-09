@@ -2,7 +2,8 @@ import './App.css';
 import React from 'react';
 import styled from 'styled-components';
 
-const Container = styled.td`
+const Container = styled.div`
+  display: inline-block;
   border: 1px solide #c4c4c4;
   border-radius: 0.5rem;
   cursor: pointer;
@@ -45,12 +46,10 @@ class ComponentRow extends React.Component {
     const { title, componentCardItems, selectHandler } = this.props;
     return (
       <>
-        <table>
-          <Title><td>{title}</td></Title>
-          <tr>
-            {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl} id={card.id} selectHandler={selectHandler}/>)}
-          </tr>
-        </table>
+        <Title><td>{title}</td></Title>
+        <tr>
+          {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl} id={card.id} selectHandler={selectHandler}/>)}
+        </tr>
       </>
     )
   }
@@ -137,10 +136,10 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h1>Welcome to mushroom builder</h1>
-        <ComponentRow title="Select Head" componentCardItems={MushroomHeadsData} selectHandler={this.handleSelectHead}/>
-        <ComponentRow title="Select Stem" componentCardItems={MushroomStemsData} selectHandler={this.handleSelectStem}/>
-        <ComponentRow title="Select Background" componentCardItems={MushroomBackgroundData} selectHandler={this.handleSelectBackground}/>
+        <h1>welcome to mushroom builder</h1>
+        <ComponentRow title="select head" componentCardItems={MushroomHeadsData} selectHandler={this.handleSelectHead}/>
+        <ComponentRow title="select stem" componentCardItems={MushroomStemsData} selectHandler={this.handleSelectStem}/>
+        <ComponentRow title="select background" componentCardItems={MushroomBackgroundData} selectHandler={this.handleSelectBackground}/>
       </div>
     );
   }
