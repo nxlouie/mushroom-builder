@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import styled from 'styled-components';
@@ -47,6 +46,24 @@ class ComponentRow extends React.Component {
   }
 }
 
+class MetadataForm extends React.Component {
+  render() {
+    return (
+      <div>
+        <form>
+          <label>
+            <input type="text" />
+            <br />
+            <textarea />
+            <br />
+            <input type="submit" value="Submit" />
+          </label>
+        </form>
+      </div>
+    )
+  }
+}
+
 
 
 function App() {
@@ -56,6 +73,7 @@ function App() {
       <ComponentRow/>
       <ComponentRow/>
       <ComponentRow/>
+      <MetadataForm/>
     </div>
   );
 }
