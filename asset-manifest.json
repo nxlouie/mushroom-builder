@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/mushroom-builder/static/css/main.65172f2c.chunk.css",
+    "main.js": "/mushroom-builder/static/js/main.b6eed61c.chunk.js",
+    "main.js.map": "/mushroom-builder/static/js/main.b6eed61c.chunk.js.map",
+    "runtime-main.js": "/mushroom-builder/static/js/runtime-main.31b68b9f.js",
+    "runtime-main.js.map": "/mushroom-builder/static/js/runtime-main.31b68b9f.js.map",
+    "static/js/2.f6443289.chunk.js": "/mushroom-builder/static/js/2.f6443289.chunk.js",
+    "static/js/2.f6443289.chunk.js.map": "/mushroom-builder/static/js/2.f6443289.chunk.js.map",
+    "static/js/3.72a3fa27.chunk.js": "/mushroom-builder/static/js/3.72a3fa27.chunk.js",
+    "static/js/3.72a3fa27.chunk.js.map": "/mushroom-builder/static/js/3.72a3fa27.chunk.js.map",
+    "index.html": "/mushroom-builder/index.html",
+    "static/css/main.65172f2c.chunk.css.map": "/mushroom-builder/static/css/main.65172f2c.chunk.css.map",
+    "static/js/2.f6443289.chunk.js.LICENSE.txt": "/mushroom-builder/static/js/2.f6443289.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.31b68b9f.js",
+    "static/js/2.f6443289.chunk.js",
+    "static/css/main.65172f2c.chunk.css",
+    "static/js/main.b6eed61c.chunk.js"
+  ]
+}
