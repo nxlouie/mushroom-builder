@@ -42,37 +42,19 @@ class ComponentRow extends React.Component {
   }
 
   render() {
-    const { componentCardItems, selectHandler } = this.props;
+    const { title, componentCardItems, selectHandler } = this.props;
     return (
       <>
-        <Title><td>hey</td></Title>
-        <tr>
-          {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl} id={card.id} selectHandler={selectHandler}/>)}
-        </tr>
+        <table>
+          <Title><td>{title}</td></Title>
+          <tr>
+            {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl} id={card.id} selectHandler={selectHandler}/>)}
+          </tr>
+        </table>
       </>
     )
   }
 }
-
-class MetadataForm extends React.Component {
-  render() {
-    return (
-      <div>
-        <form>
-          <label>
-            <input type="text" />
-            <br />
-            <textarea />
-            <br />
-            <input type="submit" value="Submit" />
-          </label>
-        </form>
-      </div>
-    )
-  }
-}
-
-
 
 const MushroomHeadsData = [
   {
@@ -156,10 +138,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>Welcome to mushroom builder</h1>
-        <ComponentRow componentCardItems={MushroomHeadsData} selectHandler={this.handleSelectHead}/>
-        <ComponentRow componentCardItems={MushroomStemsData} selectHandler={this.handleSelectStem}/>
-        <ComponentRow componentCardItems={MushroomBackgroundData} selectHandler={this.handleSelectBackground}/>
-        <MetadataForm/>
+        <ComponentRow title="Select Head" componentCardItems={MushroomHeadsData} selectHandler={this.handleSelectHead}/>
+        <ComponentRow title="Select Stem" componentCardItems={MushroomStemsData} selectHandler={this.handleSelectStem}/>
+        <ComponentRow title="Select Background" componentCardItems={MushroomBackgroundData} selectHandler={this.handleSelectBackground}/>
       </div>
     );
   }
