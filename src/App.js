@@ -20,9 +20,11 @@ const Container = styled.div`
   padding-left: 3rem;
 `;
 const ComponentImg = styled.img`
-  height: 14rem;
+  border: 1px solid #000000;
+  border-radius: 0.5rem;
+  height: 7rem;
   object-fit: cover;
-  width: 14rem;
+  width: 7rem;
 `;
 
 class ComponentCard extends React.Component {
@@ -109,10 +111,18 @@ const MushroomBackgroundData = [
 ]
 
 const OverlayContainer = styled.div`
+  padding-left: 6rem;
   position: relative;
   display: inline;
 `;
+const BaseOverlayComponentImg = styled(ComponentImg)`
+  height: 14rem;
+  width: 14rem;
+`;
 const OverlayComponentImg = styled(ComponentImg)`
+  border: 0px;
+  height: 14rem;
+  width: 14rem;
   position: absolute;
   bottom: 0;
   right: 0;
@@ -138,15 +148,25 @@ class ResultMushroom extends React.Component {
     if(selectedBackgroundId !== null) {
       chosenBgObj = MushroomBackgroundData.filter(obj => {return obj.id === selectedBackgroundId})[0];
     }
+    let Overlay;
+    if(selectedHeadId === 1) {
+      Overlay = <OverlayContainer>
+        {chosenHeadObj !== null && <OverlayComponentImg src= {chosenHeadObj.imgUrl}/>}
+        {chosenStemObj !== null && <OverlayComponentImg src= {chosenStemObj.imgUrl}/>}
+        {chosenBgObj !== null && <BaseOverlayComponentImg src={chosenBgObj.imgUrl}/>}
+      </OverlayContainer>;
+    } else {
+      Overlay = <OverlayContainer>
+        {chosenStemObj !== null && <OverlayComponentImg src= {chosenStemObj.imgUrl}/>}
+        {chosenHeadObj !== null && <OverlayComponentImg src= {chosenHeadObj.imgUrl}/>}
+        {chosenBgObj !== null && <BaseOverlayComponentImg src={chosenBgObj.imgUrl}/>}
+      </OverlayContainer>;
+    }
 
     return (
       <div className="Result">
       <td><Title>{"your mushroom"}</Title></td>
-      <OverlayContainer>
-        {chosenStemObj !== null && <OverlayComponentImg src= {chosenStemObj.imgUrl}/>}
-        {chosenHeadObj !== null && <OverlayComponentImg src= {chosenHeadObj.imgUrl}/>}
-        {chosenBgObj !== null && <ComponentImg src={chosenBgObj.imgUrl}/>}
-      </OverlayContainer>
+      {Overlay}
     </div>
     );
   }
