@@ -17,14 +17,14 @@ const Container = styled.div`
   border-radius: 0.5rem;
   cursor: pointer;
   vertical-align: top;
-  padding-left: 2rem;
+  padding-left: 0.5rem;
 `;
 const ComponentImg = styled.img`
   border: 1px solid #000000;
   border-radius: 0.5rem;
-  height: 7rem;
+  height: 6rem;
   object-fit: cover;
-  width: 7rem;
+  width: 6rem;
 `;
 
 class ComponentCard extends React.Component {
@@ -43,7 +43,6 @@ class ComponentCard extends React.Component {
 }
 
 const Title = styled.h2`
-  padding-bottom: 0.5rem;
   padding-left: 3rem;
 `;
 
@@ -120,7 +119,7 @@ const MushroomBackgroundData = [
 ]
 
 const ResultContainer = styled.div`
-  padding-left: 8rem;
+  padding-left: 3rem;
 `;
 const OverlayContainer = styled.div`
   position: relative;
