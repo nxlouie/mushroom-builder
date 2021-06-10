@@ -26,6 +26,9 @@ const ComponentImg = styled.img`
   object-fit: cover;
   width: 6rem;
 `;
+const HighlightedComponentImg = styled(ComponentImg)`
+  border: 1px solid #ff80f4;
+`;
 
 class ComponentCard extends React.Component {
   constructor(props) {
@@ -33,10 +36,16 @@ class ComponentCard extends React.Component {
   }
 
   render() {
-    const { imgUrl, id, selectHandler } = this.props;
+    const { imgUrl, id, selectHandler, shouldHighlight } = this.props;
+    let img;
+    if (shouldHighlight) {
+      img = <HighlightedComponentImg src= {imgUrl}/>
+    } else {
+      img = <ComponentImg src= {imgUrl}/>
+    }
     return (
       <Container onClick={() => selectHandler(id)}>
-        <ComponentImg src= {imgUrl}/>
+        {img}
       </Container>
     )
   }
@@ -52,12 +61,12 @@ class ComponentRow extends React.Component {
   }
 
   render() {
-    const { title, componentCardItems, selectHandler } = this.props;
+    const { title, componentCardItems, selectHandler, selectedId } = this.props;
     return (
       <>
         <Title>{title}</Title>
         <div>
-          {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl} id={card.id} selectHandler={selectHandler}/>)}
+          {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl} id={card.id} selectHandler={selectHandler} shouldHighlight={card.id === selectedId}/>)}
         </div>
       </>
     )
@@ -235,9 +244,9 @@ class App extends React.Component {
       <AppDiv>
         <AppTitle>welcome to mushroom builder</AppTitle>
         <div className="Selection">
-          <ComponentRow title="select head" componentCardItems={MushroomHeadsData} selectHandler={this.handleSelectHead}/>
-          <ComponentRow title="select stem" componentCardItems={MushroomStemsData} selectHandler={this.handleSelectStem}/>
-          <ComponentRow title="select background" componentCardItems={MushroomBackgroundData} selectHandler={this.handleSelectBackground}/>
+          <ComponentRow title="select head" componentCardItems={MushroomHeadsData} selectHandler={this.handleSelectHead} selectedId={this.state.selectedHeadId}/>
+          <ComponentRow title="select stem" componentCardItems={MushroomStemsData} selectHandler={this.handleSelectStem} selectedId={this.state.selectedStemId}/>
+          <ComponentRow title="select background" componentCardItems={MushroomBackgroundData} selectHandler={this.handleSelectBackground} selectedId={this.state.selectedBackgroundId}/>
         </div>
         <ResultMushroom selectedHeadId={this.state.selectedHeadId} selectedStemId={this.state.selectedStemId} selectedBackgroundId={this.state.selectedBackgroundId}/>
       </AppDiv>
