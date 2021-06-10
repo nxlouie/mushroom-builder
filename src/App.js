@@ -17,7 +17,7 @@ const Container = styled.div`
   border-radius: 0.5rem;
   cursor: pointer;
   vertical-align: top;
-  padding-left: 3rem;
+  padding-left: 2rem;
 `;
 const ComponentImg = styled.img`
   border: 1px solid #000000;
@@ -56,7 +56,7 @@ class ComponentRow extends React.Component {
     const { title, componentCardItems, selectHandler } = this.props;
     return (
       <>
-        <td><Title>{title}</Title></td>
+        <Title>{title}</Title>
         <div>
           {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl} id={card.id} selectHandler={selectHandler}/>)}
         </div>
@@ -69,14 +69,17 @@ const MushroomHeadsData = [
   {
     imgUrl: morelHeadImg,
     id:0,
+    name:'Morchella',
   },
   {
     imgUrl: sulfurHeadImg,
     id:1,
+    name:'Hypholoma',
   },
   {
     imgUrl: flyHeadImg,
     id:2,
+    name:'Amanita',
   },
 ]
 
@@ -84,14 +87,17 @@ const MushroomStemsData = [
   {
     imgUrl: morelStemImg,
     id:3,
+    name: 'tridentina',
   },
   {
     imgUrl: sulfurStemImg,
     id:4,
+    name: 'fasciculare',
   },
   {
     imgUrl: flyStemImg,
     id:5,
+    name: 'muscaria',
   },
 ]
 
@@ -99,19 +105,24 @@ const MushroomBackgroundData = [
   {
     imgUrl: urbanImg,
     id:6,
+    name: 'urbana',
   },
   {
     imgUrl: spaceImg,
     id:7,
+    name: 'stellaris',
   },
   {
     imgUrl: blankImg,
     id:8,
+    name: 'niveus',
   },
 ]
 
+const ResultContainer = styled.div`
+  padding-left: 8rem;
+`;
 const OverlayContainer = styled.div`
-  padding-left: 6rem;
   position: relative;
   display: inline;
 `;
@@ -138,15 +149,18 @@ class ResultMushroom extends React.Component {
     var chosenHeadObj = null;
     var chosenStemObj = null;
     var chosenBgObj = null;
-
+    var name = '';
     if(selectedHeadId !== null) {
       chosenHeadObj = MushroomHeadsData.filter(obj => {return obj.id === selectedHeadId})[0];
+      name = name.concat(chosenHeadObj.name);
     }
     if(selectedStemId !== null) {
       chosenStemObj = MushroomStemsData.filter(obj => {return obj.id === selectedStemId})[0];
+      name = name.concat(" " + chosenStemObj.name);
     }
     if(selectedBackgroundId !== null) {
       chosenBgObj = MushroomBackgroundData.filter(obj => {return obj.id === selectedBackgroundId})[0];
+      name = name.concat(" " + chosenBgObj.name);
     }
     let Overlay;
     if(selectedHeadId === 1) {
@@ -164,10 +178,14 @@ class ResultMushroom extends React.Component {
     }
 
     return (
-      <div className="Result">
-      <td><Title>{"your mushroom"}</Title></td>
-      {Overlay}
-    </div>
+      <>
+      <Title>{"your mushroom"}</Title>
+      <ResultContainer>
+        <p>{name}</p>
+        {Overlay} <br/>
+        {chosenHeadObj !== null && chosenStemObj !== null && chosenBgObj !== null && <p>happy birthday Lisa 🙂</p>}
+      </ResultContainer>
+      </>
     );
   }
 }
