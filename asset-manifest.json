@@ -1,30 +1,32 @@
 {
   "files": {
     "main.css": "/mushroom-builder/static/css/main.65172f2c.chunk.css",
-    "main.js": "/mushroom-builder/static/js/main.8ac6fc73.chunk.js",
-    "main.js.map": "/mushroom-builder/static/js/main.8ac6fc73.chunk.js.map",
+    "main.js": "/mushroom-builder/static/js/main.6509853a.chunk.js",
+    "main.js.map": "/mushroom-builder/static/js/main.6509853a.chunk.js.map",
     "runtime-main.js": "/mushroom-builder/static/js/runtime-main.31b68b9f.js",
     "runtime-main.js.map": "/mushroom-builder/static/js/runtime-main.31b68b9f.js.map",
-    "static/js/2.51307a6a.chunk.js": "/mushroom-builder/static/js/2.51307a6a.chunk.js",
-    "static/js/2.51307a6a.chunk.js.map": "/mushroom-builder/static/js/2.51307a6a.chunk.js.map",
+    "static/js/2.30efe47f.chunk.js": "/mushroom-builder/static/js/2.30efe47f.chunk.js",
+    "static/js/2.30efe47f.chunk.js.map": "/mushroom-builder/static/js/2.30efe47f.chunk.js.map",
     "static/js/3.72a3fa27.chunk.js": "/mushroom-builder/static/js/3.72a3fa27.chunk.js",
     "static/js/3.72a3fa27.chunk.js.map": "/mushroom-builder/static/js/3.72a3fa27.chunk.js.map",
     "index.html": "/mushroom-builder/index.html",
     "static/css/main.65172f2c.chunk.css.map": "/mushroom-builder/static/css/main.65172f2c.chunk.css.map",
-    "static/js/2.51307a6a.chunk.js.LICENSE.txt": "/mushroom-builder/static/js/2.51307a6a.chunk.js.LICENSE.txt",
+    "static/js/2.30efe47f.chunk.js.LICENSE.txt": "/mushroom-builder/static/js/2.30efe47f.chunk.js.LICENSE.txt",
     "static/media/bg-space.0aea7e26.png": "/mushroom-builder/static/media/bg-space.0aea7e26.png",
     "static/media/bg-urban.0d1a447a.png": "/mushroom-builder/static/media/bg-urban.0d1a447a.png",
     "static/media/fly-head.9c6c8f21.png": "/mushroom-builder/static/media/fly-head.9c6c8f21.png",
     "static/media/fly-stem.4f4eb2fa.png": "/mushroom-builder/static/media/fly-stem.4f4eb2fa.png",
-    "static/media/morel-head.32b9d9ed.png": "/mushroom-builder/static/media/morel-head.32b9d9ed.png",
+    "static/media/maitake-head.30ed3830.png": "/mushroom-builder/static/media/maitake-head.30ed3830.png",
+    "static/media/maitake-stem.f350d5be.png": "/mushroom-builder/static/media/maitake-stem.f350d5be.png",
+    "static/media/morel-head.d7a234e2.png": "/mushroom-builder/static/media/morel-head.d7a234e2.png",
     "static/media/morel-stem.7da8f835.png": "/mushroom-builder/static/media/morel-stem.7da8f835.png",
     "static/media/sulfur-head.536f2eee.png": "/mushroom-builder/static/media/sulfur-head.536f2eee.png",
     "static/media/sulfur-stem.183d6511.png": "/mushroom-builder/static/media/sulfur-stem.183d6511.png"
   },
   "entrypoints": [
     "static/js/runtime-main.31b68b9f.js",
-    "static/js/2.51307a6a.chunk.js",
+    "static/js/2.30efe47f.chunk.js",
     "static/css/main.65172f2c.chunk.css",
-    "static/js/main.8ac6fc73.chunk.js"
+    "static/js/main.6509853a.chunk.js"
   ]
 }
