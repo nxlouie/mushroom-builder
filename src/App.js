@@ -7,6 +7,8 @@ import sulfurHeadImg from './img/sulfur-head.png';
 import sulfurStemImg from './img/sulfur-stem.png';
 import flyHeadImg from './img/fly-head.png';
 import flyStemImg from './img/fly-stem.png';
+import maitakeHeadImg from './img/maitake-head.png';
+import maitakeStemImg from './img/maitake-stem.png';
 import spaceImg from './img/bg-space.png';
 import urbanImg from './img/bg-urban.png';
 import blankImg from './img/bg-blank.png';
@@ -29,6 +31,14 @@ const ComponentImg = styled.img`
 const HighlightedComponentImg = styled(ComponentImg)`
   border: 1px solid #ff80f4;
 `;
+const NewTag = styled.div`
+  border: 1px solid #000000;
+  border-radius: 0.5rem;
+  background: yellow;
+  padding: 2px;
+  margin: 6px;
+  display: inline-block;
+`;
 
 class ComponentCard extends React.Component {
   constructor(props) {
@@ -36,7 +46,7 @@ class ComponentCard extends React.Component {
   }
 
   render() {
-    const { imgUrl, id, selectHandler, shouldHighlight } = this.props;
+    const { imgUrl, id, selectHandler, shouldHighlight, designateNew } = this.props;
     let img;
     if (shouldHighlight) {
       img = <HighlightedComponentImg src= {imgUrl}/>
@@ -45,7 +55,12 @@ class ComponentCard extends React.Component {
     }
     return (
       <Container onClick={() => selectHandler(id)}>
-        {img}
+        <div>
+          {designateNew ? <NewTag>new!</NewTag> : <div>&nbsp;</div>}
+          <br></br>
+          {img}
+        </div>
+
       </Container>
     )
   }
@@ -66,7 +81,7 @@ class ComponentRow extends React.Component {
       <>
         <Title>{title}</Title>
         <div>
-          {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl} id={card.id} selectHandler={selectHandler} shouldHighlight={card.id === selectedId}/>)}
+          {componentCardItems.map(card => <ComponentCard imgUrl={card.imgUrl} id={card.id} selectHandler={selectHandler} shouldHighlight={card.id === selectedId} designateNew={card.new}/>)}
         </div>
       </>
     )
@@ -74,6 +89,12 @@ class ComponentRow extends React.Component {
 }
 
 const MushroomHeadsData = [
+  {
+    imgUrl: maitakeHeadImg,
+    id: 9,
+    name: 'Grifola',
+    new: true,
+  },
   {
     imgUrl: morelHeadImg,
     id:0,
@@ -92,6 +113,12 @@ const MushroomHeadsData = [
 ]
 
 const MushroomStemsData = [
+  {
+    imgUrl: maitakeStemImg,
+    id:10,
+    name: 'frondosa',
+    new: true,
+  },
   {
     imgUrl: morelStemImg,
     id:3,
